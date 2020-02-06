@@ -1,0 +1,37 @@
+    <h1>Ma TODO liste</h1>
+    <!-- <li *ngFor="let todo of todos">{{todo.name}}</li> -->
+    <!-- <ul class="nav-tabs">
+        <span *ngFor="let todo of todos">
+            <app-todo [todo]="todo"></app-todo>
+        </span>
+    </ul> -->
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Fait ?</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos$ | async" [class.done]="todo.isDone">
+                <!-- <app-todo [todo]="todo"></app-todo> -->
+                <td>{{todo.id}}</td>
+                <td>{{todo.name}}</td>
+                <td>{{todo.creationTime | date}}</td>
+                <td>
+                <input type="checkbox" (click)="update(todo)" [checked]="todo.isDone"/>
+                    {{todo.isDone ? "Fait" : "Non fait" }}
+                </td>
+                <td >
+                    <button *ngIf="todo.isDone" (click)="remove(todo)">Supprimer</button>
+                    <button *ngIf="!todo.isDone" (click)="updateName(todo)">Modifier</button>
+                </td>
+            </tr>
+        </tbody>
+        <button [routerLink]="['/Todo', 0]">Ajouter une tâche</button>
+    </table>
+

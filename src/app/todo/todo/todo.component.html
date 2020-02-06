@@ -1,0 +1,10 @@
+<h1>{{todo ? "Modifier" : "Ajouter"}} une tâche</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Nom</label>
+        <input type="text" formControlName="name" class="form-control" />
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary">{{todo ? "Modifier" : "Ajouter"}}</button>
+    </div>
+</form>
