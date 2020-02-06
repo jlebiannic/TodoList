@@ -2,7 +2,13 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label>Nom</label>
-        <input type="text" formControlName="name" class="form-control" />
+        <input type="text" formControlName="name" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="f.name.invalid && f.name.dirty" style="color: red;">
+            <span *ngIf="f.name.errors.required">Nom obligatoire</span>
+            <span *ngIf="f.name.errors.minlength">Le nom doit faire au moins {{
+                                    f.name.errors.minlength.requiredLength}} caractères</span>
+        </div>
     </div>
 
     <div class="form-group">
@@ -12,8 +18,17 @@
                 {{ person.name }}, {{ person.firstname }}
             </option>
         </select>
+        <button class="btn btn-secondary" (click)="affecter($event)">Affecter</button>
+    </div>
+    <div *ngIf="todo.persons.length">
+        <div>Personnes affectées à cette tâche</div>
+        <ul>
+            <li *ngFor="let person of todo.persons">
+                {{ person.name }} {{ person.firstname }}
+            </li>
+        </ul>
     </div>
     <div class="form-group">
-        <button class="btn btn-primary">{{todo ? "Modifier" : "Ajouter"}}</button>
+        <button type="submit" class="btn btn-primary">{{todo ? "Modifier" : "Ajouter"}}</button>
     </div>
 </form>

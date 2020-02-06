@@ -27,11 +27,11 @@
                     {{todo.isDone ? "Fait" : "Non fait" }}
                 </td>
                 <td >
-                    <button *ngIf="todo.isDone" (click)="remove(todo)">Supprimer</button>
-                    <button *ngIf="!todo.isDone" (click)="updateName(todo)">Modifier</button>
+                    <button class="btn btn-secondary" *ngIf="todo.isDone" (click)="remove(todo)">Supprimer</button>
+                    <button class="btn btn-secondary" *ngIf="!todo.isDone" (click)="updateName(todo)">Modifier</button>
                 </td>
             </tr>
         </tbody>
-        <button [routerLink]="['/Todo', 0]">Ajouter une tâche</button>
+        <button class="btn btn-primary"  [routerLink]="['/Todo', 0]">Ajouter une tâche</button>
     </table>
 

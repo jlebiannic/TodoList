@@ -25,7 +25,7 @@ export class TodoListComponent implements OnInit {
   }
 
   public update(todo : Todo) {
-    this.service.updateTodo(todo).subscribe();
+    this.service.updateTodoState(todo).subscribe();
   }
 
   public remove(todo : Todo) {

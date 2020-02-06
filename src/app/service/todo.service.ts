@@ -3,6 +3,7 @@ import { Todo } from '../todo/model/Todo';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { TODOS } from '../todo/mock/todos.mock';
 import * as _ from 'lodash'
+import { Person } from '../todo/model/Person';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,7 @@ export class TodoService {
     return of();
   }
 
-  public updateTodo(todo: Todo): Observable<void> {
+  public updateTodoState(todo: Todo): Observable<void> {
     const idx = this.todos.indexOf(todo);
     const t = this.todos[idx];
     t.isDone = !t.isDone;
@@ -59,14 +60,14 @@ export class TodoService {
     return of();
   }
 
-  updateTodoName(id: number, newName: string): Observable<void>  {
-    this.getTodo(id).subscribe(todo => {
+  updateTodo(t: Todo): Observable<void>  {
+    this.getTodo(t.id).subscribe(todo => {
       if(todo){
-        todo.name = newName;
+        Object.assign(todo, t);
       } else {
-        console.error("todo non trouvé: " + id);
+        console.error("todo non trouvé: " + t.id);
       }
-
+      this.notifyTodos();
     });
     return of();
   }
@@ -77,4 +78,6 @@ export class TodoService {
   getDateDuJour(): Date {
     return new Date();
   }
+
+
 }
