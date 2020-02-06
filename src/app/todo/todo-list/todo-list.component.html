@@ -13,6 +13,7 @@
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Fait ?</th>
+                <th>Qui</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                 <input type="checkbox" (click)="update(todo)" [checked]="todo.isDone"/>
                     {{todo.isDone ? "Fait" : "Non fait" }}
                 </td>
+                <td>{{todo.persons | toStringPerson}}</td>
                 <td >
                     <button class="btn btn-secondary" *ngIf="todo.isDone" (click)="remove(todo)">Supprimer</button>
                     <button class="btn btn-secondary" *ngIf="!todo.isDone" (click)="updateName(todo)">Modifier</button>

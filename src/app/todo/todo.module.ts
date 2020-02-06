@@ -4,11 +4,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoComponent } from './todo/todo.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToStringPersonPipe } from './pipe/toString-person.pipe';
 
 
 
 @NgModule({
-  declarations: [TodoListComponent, TodoComponent],
+  declarations: [TodoListComponent, TodoComponent, ToStringPersonPipe],
   imports: [
     CommonModule,
     AppRoutingModule,
