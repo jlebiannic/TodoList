@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { DemoService } from 'src/app/service/demo.service';
+import { TodoService } from 'src/app/service/todo.service';
 import { Todo } from '../model/Todo';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ export class TodoComponent implements OnInit {
   public todo: Todo;
   // private todo$: Observable<Todo>;
 
-  constructor(private service: DemoService
+  constructor(private service: TodoService
     , private formBuilder: FormBuilder
     , private router: Router
     , private route: ActivatedRoute) { }

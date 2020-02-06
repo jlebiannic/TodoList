@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../model/Todo';
-import { DemoService } from 'src/app/service/demo.service';
+import { TodoService } from 'src/app/service/todo.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
 
   // @Output() public sortie = new EventEmitter<string>();
 
-  constructor(private service: DemoService, private router : Router) {
+  constructor(private service: TodoService, private router : Router) {
     // this.sortie.emit("test")
 
   }

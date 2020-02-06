@@ -7,7 +7,7 @@ import * as _ from 'lodash'
 @Injectable({
   providedIn: 'root'
 })
-export class DemoService {
+export class TodoService {
   // Un sujet est un observable++, c'est à dire qu'il permets de notifier des données 
   // à tous les abonnés 
   // Le BehaviorSubject permets à l'abonné de récupérer 
