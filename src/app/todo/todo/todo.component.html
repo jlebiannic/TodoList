@@ -4,7 +4,16 @@
         <label>Nom</label>
         <input type="text" formControlName="name" class="form-control" />
     </div>
+
     <div class="form-group">
-    <button class="btn btn-primary">{{todo ? "Modifier" : "Ajouter"}}</button>
+        <select formControlName="persons">
+            <option [ngValue]="null" disabled>Sélectionner une personne</option>
+            <option *ngFor="let person of allPersons" [ngValue]="person">
+                {{ person.name }}, {{ person.firstname }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">{{todo ? "Modifier" : "Ajouter"}}</button>
     </div>
 </form>

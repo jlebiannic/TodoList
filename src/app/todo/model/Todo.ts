@@ -1,5 +1,8 @@
+import { Person } from './Person';
+
 export class Todo {
 
+    public persons? : Person[] = [];
 
     constructor(
         public id: number,
