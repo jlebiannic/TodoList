@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MenuService {
 
   private path$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);

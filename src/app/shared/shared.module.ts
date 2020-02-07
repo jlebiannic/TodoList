@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { MenuItem } from './menu/model/MenuItem';
 import { AppRoutingModule } from '../app-routing.module';
+import { MenuService } from './menu/menu.service';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule
   ],
   exports: [DateDuJourComponent, MenuComponent,
-    NgbModule]
+    NgbModule],
+    providers: [MenuService]
 })
 export class SharedModule {
 
