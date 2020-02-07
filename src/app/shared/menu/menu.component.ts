@@ -28,7 +28,11 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   public getActiveId(path: any[]) : number{
-    return this.menuItems.findIndex(p => p.path === path[0]); 
+    console.log("loc: ", window.location)
+    if(!path || path.length === 0) {
+      path = [window.location.pathname];
+    }
+    return  this.menuItems.findIndex(p => p.path === path[0]) + 1
   }
 
 }

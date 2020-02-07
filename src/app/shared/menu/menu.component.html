@@ -1,6 +1,6 @@
 <ul ngbNav [(activeId)]="activeId"  class="nav-tabs">
     <ng-container *ngFor="let menuItem of menuItems; index as i">
-        <li [ngbNavItem]="i">
+        <li [ngbNavItem]="i+1">
             <a ngbNavLink 
 
             [routerLink]="menuItem.path">{{menuItem.label}}</a>
