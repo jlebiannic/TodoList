@@ -1,4 +1,8 @@
 export class MenuItem {
-    public label: string;
-    public path: string;
+    
+    constructor(
+        public path: string,
+        public label: string) { 
+
+    }
 }

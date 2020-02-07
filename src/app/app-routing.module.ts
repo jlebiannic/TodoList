@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { AccueilDemoComponent } from './accueil/accueil-demo/accueil-demo.component';
 import { TodoComponent } from './todo/todo/todo.component';
+import { MenuComponent } from './shared/menu/menu.component';
 
 
 const routes: Routes = [

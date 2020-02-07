@@ -1,6 +1,6 @@
 <!-- <app-date-du-jour></app-date-du-jour>
 <app-todo-list></app-todo-list> -->
-<ul ngbNav class="nav-tabs">
+<!-- <ul ngbNav class="nav-tabs">
     <li [ngbNavItem]="1">
         <a ngbNavLink [routerLink]="'/Accueil'">Accueil</a>
     </li>
@@ -10,7 +10,8 @@
     <li [ngbNavItem]="3">
         <a ngbNavLink [routerLink]="'/Todo'">Ajouter une tâche</a>
     </li>
-</ul>
+</ul> -->
+<app-menu [menuItems]="menuItems"></app-menu>
 <div class="container">
     <router-outlet></router-outlet>
 
