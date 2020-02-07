@@ -73,8 +73,6 @@ export class TodoComponent implements OnInit {
     // });
   }
 
-  ond
-
   // f rends accessible les contrôles du formulaire au template Html 
   public get f() {
     return this.registerForm.controls;
