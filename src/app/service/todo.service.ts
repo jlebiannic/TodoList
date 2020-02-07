@@ -27,7 +27,7 @@ export class TodoService {
 
   public notifyTodos(): void {
     // Le next permets d'émettre des données 
-    this.todos$.next(this.todos);
+    this.todos$.next([...this.todos]);
   }
 
 
