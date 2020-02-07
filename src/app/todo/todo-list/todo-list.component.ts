@@ -42,4 +42,8 @@ export class TodoListComponent implements OnInit {
     this.menuService.navigate(['/Todo']);
   }
 
+  public accueil(){
+    this.menuService.navigate(['/Accueil']);
+  }
+
 }
