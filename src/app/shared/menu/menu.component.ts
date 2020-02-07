@@ -1,17 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { MenuItem } from './model/MenuItem';
+import { Observable, Subscription } from 'rxjs';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
   @Input()
   public menuItems : MenuItem[];
-  constructor() { }
-
+  public activeId: number = 0;
+  public currentPath$ : Observable<any[]>;
+  sub: Subscription;
+  constructor(private menuService : MenuService) { 
+    this.currentPath$ = this.menuService.getPath();
+  }
+  
   ngOnInit() {
+    this.sub = this.currentPath$.subscribe((path: any[])=>
+      this.activeId = this.getActiveId(path))
+  }
+  
+  ngOnDestroy(): void {
+    this.sub.unsubscribe(); 
+  }
+
+  public getActiveId(path: any[]) : number{
+    return this.menuItems.findIndex(p => p.path === path[0]); 
   }
 
 }

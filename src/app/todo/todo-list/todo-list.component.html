@@ -30,10 +30,10 @@
                 <td>{{todo.persons | toStringPerson}}</td>
                 <td >
                     <button class="btn btn-secondary" *ngIf="todo.isDone" (click)="remove(todo)">Supprimer</button>
-                    <button class="btn btn-secondary" *ngIf="!todo.isDone" (click)="updateName(todo)">Modifier</button>
+                    <button class="btn btn-secondary" *ngIf="!todo.isDone" (click)="updateTodo(todo)">Modifier</button>
                 </td>
             </tr>
         </tbody>
-        <button class="btn btn-primary"  [routerLink]="['/Todo', 0]">Ajouter une tâche</button>
+        <button class="btn btn-primary"  (click)="ajouterTodo()">Ajouter une tâche</button>
     </table>
 

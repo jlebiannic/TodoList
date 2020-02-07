@@ -36,11 +36,17 @@ export class TodoService {
     return this.todos$.asObservable()
   }
 
-  public addTodo(name: string, date?: Date): Observable<void> {
+  public addTodo(t: Todo): Observable<void> {
     this.id++;
-    this.todos.push(new Todo(this.id, name, false, date ? date : this.getDateDuJour()))
-    // Lorsqu'on ajoute un Todo, on notifie les abonnés avec la nouvelle liste à jour 
-    this.notifyTodos();
+    if(t){
+      t.id = this.id;
+      t.creationTime = t.creationTime || new Date();
+      t.isDone = t.isDone !== undefined ? t.isDone : false;
+      this.todos.push(Object.assign(new Todo(), t))
+      this.notifyTodos();
+    } else {
+      console.error("todo null");
+    }
     return of();
   }
 

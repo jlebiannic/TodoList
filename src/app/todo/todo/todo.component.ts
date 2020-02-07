@@ -7,6 +7,7 @@ import { Observable, forkJoin, merge, zip } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { PersonService } from 'src/app/service/person.service';
 import { Person } from '../model/Person';
+import { MenuService } from 'src/app/shared/menu/menu.service';
 
 @Component({
   selector: 'app-todo',
@@ -26,7 +27,9 @@ export class TodoComponent implements OnInit {
     , private servicePerson: PersonService
     , private formBuilder: FormBuilder
     , private router: Router
-    , private route: ActivatedRoute) { }
+    , private route: ActivatedRoute
+    , private menuService: MenuService
+    ) { }
 
   ngOnInit() {
     // this.servicePerson.getPersons().pipe(
@@ -95,12 +98,12 @@ export class TodoComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+    this.todo.name = this.registerForm.value.name;
     if (this.todo.id) {
-      this.todo.name = this.registerForm.value.name;
       this.serviceTodo.updateTodo({ ...this.todo });
     } else {
-      this.serviceTodo.addTodo(this.registerForm.value.name);
+      this.serviceTodo.addTodo({ ...this.todo });
     }
-    this.router.navigate(['/TodoList']);
+    this.menuService.navigate(['/TodoList']);
   }
 }
