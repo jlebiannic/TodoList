@@ -81,7 +81,6 @@ export class TodoComponent implements OnInit {
   }
 
   public affecter(event) {
-    //console.log(this.registerForm.value.persons);
     event.preventDefault();
     const person: Person = this.registerForm.value.persons;
     this.affectPerson(person);
