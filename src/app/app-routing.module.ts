@@ -9,6 +9,7 @@ const routes: Routes = [
 { path: 'Accueil', component:  AccueilDemoComponent},
 { path: 'TodoList', component: TodoListComponent },
 { path: 'Todo/:id', component: TodoComponent },
+{ path: 'Todo', component: TodoComponent },
 { path: '**', redirectTo: 'TodoList' }];
 
 @NgModule({
