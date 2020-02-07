@@ -15,7 +15,7 @@
         <select formControlName="persons">
             <option [ngValue]="null" disabled>Sélectionner une personne</option>
             <option *ngFor="let person of allPersons" [ngValue]="person">
-                {{ person.name }}, {{ person.firstname }}
+                {{ person.name }} {{ person.firstname }}
             </option>
         </select>
         <button class="btn btn-secondary" (click)="affecter($event)">Affecter</button>
